@@ -6,8 +6,8 @@ elaborate to a nieve adder "chain". This design requires O(n) adder and results 
 
 
 module popcount #(
-    parameter integer IN_SIZE = 8,
-    parameter integer OUT_SIZE = 3
+    parameter integer IN_SIZE = 16,
+    parameter integer OUT_SIZE = $clog2(IN_SIZE) + 1
 )(
     input  wire [IN_SIZE-1:0]  A,
     output reg  [OUT_SIZE-1:0] ones

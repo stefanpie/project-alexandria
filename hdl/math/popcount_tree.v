@@ -1,5 +1,7 @@
+// TODO: Pad inputs for inputs that don't match powers of 2 and test optimzation away of exta bits at different adder levels
+
 module popcount_tree #(
-    parameter integer IN_SIZE = 64,
+    parameter integer IN_SIZE = 16,
 
     parameter LEVELS = $clog2(IN_SIZE),
     parameter OUT_SIZE = LEVELS+1
@@ -7,7 +9,6 @@ module popcount_tree #(
     input  wire [IN_SIZE-1:0]  A,
     output wire [OUT_SIZE-1:0] count
 );
-
 
 wire [OUT_SIZE-1:0] wire_set_buffer [0:IN_SIZE-1] [0:IN_SIZE-1];
 assign count = wire_set_buffer[LEVELS][0];
